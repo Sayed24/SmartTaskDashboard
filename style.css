@@ -1,1 +1,54 @@
+/* Sidebar */
+body { display:flex; font-family:Arial,sans-serif; margin:0; transition:0.3s; }
+.sidebar { width:220px; background:#1e1e2f; color:#fff; min-height:100vh; padding:20px; box-sizing:border-box; }
+.sidebar h2 { margin-bottom:20px; text-align:center; }
+.sidebar ul { list-style:none; padding:0; }
+.sidebar ul li{ margin:10px 0; }
+.sidebar ul li a { color:#fff; text-decoration:none; display:block; padding:10px; border-radius:6px; transition:0.3s; }
+.sidebar ul li a.active, .sidebar ul li a:hover { background:#1e90ff; }
 
+/* Main */
+main{ flex:1; padding:20px; overflow:auto; }
+section { display:none; }
+.active-section{ display:block; }
+
+/* Widgets & Analytics */
+.widgets{ display:flex; gap:20px; margin-bottom:20px; flex-wrap:wrap; }
+.widget{ background:rgba(30,144,255,0.1); padding:20px; border-radius:10px; flex:1; min-width:200px; }
+.analytics{ background:rgba(30,144,255,0.1); padding:20px; border-radius:10px; }
+
+/* Projects & Tasks */
+.projects-section ul, .tasks-section ul{ list-style:none; padding:0; margin-top:10px; }
+.projects-section li, .tasks-section li{ padding:10px; background:#f0f0f0; margin-bottom:5px; border-radius:6px; cursor:grab; display:flex; justify-content:space-between; align-items:center; }
+li button{ margin-left:10px; background:#ff4d4d; border:none; padding:3px 6px; border-radius:5px; cursor:pointer; color:#fff; }
+li button:hover{ background:#ff1a1a; }
+
+/* Progress Bar */
+.progress{ background:#ddd; border-radius:8px; margin-top:5px; overflow:hidden; height:15px; flex:1; margin-left:10px; }
+.progress-bar{ background:#1e90ff; height:100%; text-align:center; color:#fff; font-size:12px; transition:0.5s; }
+
+/* Calendar */
+#calendarContainer{ display:flex; flex-direction:column; align-items:center; margin-top:20px; }
+#calendarContainer h2{ margin-bottom:20px; }
+.days{ display:grid; grid-template-columns:repeat(7,1fr); gap:10px; width:100%; }
+.day{ padding:15px; background: rgba(30,144,255,0.2); border-radius:8px; text-align:center; cursor:pointer; position:relative; }
+.day:hover{ background:#1e90ff; color:#fff; }
+.task-dot{ display:inline-block; width:8px; height:8px; background:#ff4500; border-radius:50%; position:absolute; bottom:5px; left:50%; transform:translateX(-50%); }
+
+/* Dark Mode */
+.dark-mode{ background:#121212; color:#fff; }
+.dark-mode .widget, .dark-mode .analytics, .dark-mode .projects-section li, .dark-mode .tasks-section li{ background: rgba(30,144,255,0.2); color:#fff; }
+.dark-mode .sidebar{ background:#0f0f1a; }
+
+/* Toast */
+#toast{ position:fixed; bottom:20px; right:20px; background:#1e90ff; color:#fff; padding:10px 20px; border-radius:8px; opacity:0; pointer-events:none; transition:0.5s; z-index:9999; }
+#toast.show{ opacity:1; pointer-events:auto; }
+
+/* Responsive */
+@media(max-width:768px){
+    body{ flex-direction:column; }
+    .sidebar{ width:100%; display:flex; flex-direction:row; overflow-x:auto; }
+    .sidebar ul{ display:flex; gap:10px; }
+    main{ padding:10px; }
+    .widgets{ flex-direction:column; }
+}
