@@ -1,1 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>SmartTask Dashboard</title>
+<link rel="stylesheet" href="style.css">
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+<aside class="sidebar">
+    <h2>SmartTask</h2>
+    <ul>
+        <li><a href="#" data-section="dashboard" class="active">Dashboard</a></li>
+        <li><a href="#" data-section="projects">Projects</a></li>
+        <li><a href="#" data-section="tasks">Tasks</a></li>
+        <li><a href="#" data-section="calendar">Calendar</a></li>
+        <li><a href="#" data-section="settings">Settings</a></li>
+    </ul>
+</aside>
 
+<main>
+    <!-- Dashboard -->
+    <section id="dashboard" class="active-section">
+        <header>
+            <h1>Dashboard Overview</h1>
+            <div class="theme-toggle">🌙</div>
+        </header>
+
+        <section class="widgets">
+            <div class="widget">
+                <h3>Tasks Completed</h3>
+                <canvas id="tasksChart"></canvas>
+            </div>
+            <div class="widget">
+                <h3>Active Projects</h3>
+                <p id="projectCount">0</p>
+            </div>
+            <div class="widget">
+                <h3>Upcoming Deadlines</h3>
+                <ul id="deadlinesList"></ul>
+            </div>
+        </section>
+
+        <section class="analytics">
+            <h2>Productivity Overview</h2>
+            <canvas id="productivityChart"></canvas>
+        </section>
+    </section>
+
+    <!-- Projects -->
+    <section id="projects">
+        <header><h1>Projects</h1></header>
+        <section class="projects-section">
+            <div class="add-project">
+                <input type="text" id="projectName" placeholder="Project Name">
+                <button id="addProjectBtn">Add Project</button>
+            </div>
+            <ul id="projectList"></ul>
+        </section>
+    </section>
+
+    <!-- Tasks -->
+    <section id="tasks">
+        <header><h1>Tasks</h1></header>
+        <section class="tasks-section">
+            <div class="add-task">
+                <input type="text" id="taskName" placeholder="Task Name">
+                <select id="taskProject"></select>
+                <button id="addTaskBtn">Add Task</button>
+            </div>
+            <ul id="taskList"></ul>
+        </section>
+    </section>
+
+    <!-- Calendar -->
+    <section id="calendar">
+        <header><h1>Calendar</h1></header>
+        <section class="calendar-section">
+            <div id="calendarContainer"></div>
+        </section>
+    </section>
+
+    <!-- Settings -->
+    <section id="settings">
+        <header><h1>Settings</h1></header>
+        <section class="settings-section">
+            <h2>Profile</h2>
+            <div class="profile-settings">
+                <input type="text" id="username" placeholder="Your Name">
+                <input type="email" id="email" placeholder="Your Email">
+                <button id="saveProfileBtn">Save Profile</button>
+            </div>
+
+            <h2>Preferences</h2>
+            <div class="preferences">
+                <label>
+                    <input type="checkbox" id="darkModeToggle"> Enable Dark Mode
+                </label>
+            </div>
+        </section>
+    </section>
+</main>
+
+<div id="toast"></div>
+<script src="script.js"></script>
+</body>
+</html>
